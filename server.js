@@ -22,4 +22,4 @@ app.post('/book', (req, res) => {
     // We will be coding here
 });
 
-app.listen((3000, "0.0.0.0"), () => console.log(`Hello world app listening on port ${port}!`));
+app.listen(8080, () => console.log(`Hello world app listening on port 3000!`));
