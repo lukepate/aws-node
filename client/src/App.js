@@ -10,7 +10,7 @@ class App extends Component  {
   }
 
   callAPI() {
-      fetch("http://localhost:9000/testAPI")
+      fetch("http://ec2-18-217-155-238.us-east-2.compute.amazonaws.com/testAPI")
           .then(res => res.text())
           .then(res => this.setState({ apiResponse: res }));
   }
