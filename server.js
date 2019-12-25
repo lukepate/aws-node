@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const port = 3000;
 
 // Where we will keep books
 let books = [];
@@ -23,4 +22,4 @@ app.post('/book', (req, res) => {
     // We will be coding here
 });
 
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+app.listen((3000, "0.0.0.0"), () => console.log(`Hello world app listening on port ${port}!`));
