@@ -3,16 +3,26 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component  {
-
+  // const url = "http://ec2-18-217-155-238.us-east-2.compute.amazonaws.com"
   constructor(props) {
       super(props);
-      this.state = { apiResponse: "" };
+      this.state = {
+        name: "",
+        test: ""
+      };
   }
 
   callAPI() {
-      fetch("http://ec2-18-217-155-238.us-east-2.compute.amazonaws.com:9000/testAPI")
-          .then(res => res.text())
-          .then(res => this.setState({ apiResponse: res }));
+      fetch("http://localhost:9000/testAPI")
+          .then(res => {
+            return res.json();
+          })
+          .then(res => {
+            this.setState({
+              name: res.one.name,
+              test: res.one.test
+            })
+          })
   }
 
   componentWillMount() {
@@ -26,7 +36,8 @@ class App extends Component  {
           <img src={logo} className="App-logo" alt="logo" />
 
         </header>
-        <p className="App-intro">{this.state.apiResponse}</p>
+        <p className="App-intro">{this.state.name}</p>
+        <p className="App-intro">{this.state.test}</p>
       </div>
     );
   }
